@@ -1,6 +1,32 @@
---- A/pom.xml	2010-08-06 05:39:21.754029000 +0200
-+++ B/pom.xml	2010-10-08 00:48:04.001693009 +0200
-@@ -245,29 +245,6 @@
+From a1f7f0c16eb2333e527448c2e48a512ef8da50ed Mon Sep 17 00:00:00 2001
+From: Stanislav Ochotnicky <sochotnicky@redhat.com>
+Date: Tue, 24 Apr 2012 09:04:34 +0200
+Subject: [PATCH] Fix build by removing some unneeded dependencies
+
+---
+ pom.xml |   72 ++++++--------------------------------------------------------
+ 1 files changed, 7 insertions(+), 65 deletions(-)
+
+diff --git a/pom.xml b/pom.xml
+index a806a49..e806c77 100644
+--- a/pom.xml
++++ b/pom.xml
+@@ -147,14 +147,6 @@
+             </plugin>
+             <!-- IDE descriptors -->
+             <plugin>
+-                <artifactId>maven-eclipse-plugin</artifactId>
+-                <configuration>
+-                    <downloadSources>true</downloadSources>
+-                    <downloadJavadocs>false</downloadJavadocs>
+-                    <addVersionToProjectName>true</addVersionToProjectName>
+-                </configuration>
+-            </plugin>
+-            <plugin>
+                 <artifactId>maven-idea-plugin</artifactId>
+                 <configuration>
+                     <downloadSources>true</downloadSources>
+@@ -245,29 +237,6 @@
              <plugin>
                  <artifactId>maven-dependency-plugin</artifactId>
              </plugin>
@@ -30,7 +56,7 @@
          </plugins>
      </build>
  
-@@ -380,7 +357,12 @@
+@@ -380,7 +349,12 @@
          <dependency>
              <groupId>org.apache.maven</groupId>
              <artifactId>maven-plugin-api</artifactId>
@@ -39,12 +65,12 @@
 +        </dependency>
 +        <dependency>
 +            <groupId>org.apache.maven</groupId>
-+            <artifactId>maven-artifact</artifactId>
++            <artifactId>maven-compat</artifactId>
 +            <version>2.2.1</version>
          </dependency>
          <dependency>
              <groupId>com.mycila.xmltool</groupId>
-@@ -403,38 +385,6 @@
+@@ -403,38 +377,6 @@
              <artifactId>plexus-utils</artifactId>
              <version>1.5.1</version>
          </dependency>
@@ -85,3 +111,6 @@
 -</project>
 \ No newline at end of file
 +</project>
+-- 
+1.7.7.6
+
