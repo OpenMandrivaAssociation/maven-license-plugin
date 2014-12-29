@@ -1,9 +1,9 @@
 %{?_javapackages_macros:%_javapackages_macros}
 Name:           maven-license-plugin
 Version:        1.8.0
-Release:        15.0%{?dist}
+Release:        17.1
 Summary:        Maven plugin to update header licenses of source files
-
+Group:		Development/Java
 
 License:        ASL 2.0
 URL:            http://code.google.com/p/maven-license-plugin
@@ -85,30 +85,13 @@ sed -i 's/\r//' NOTICE.txt
 %pom_xpath_remove pom:build/pom:extensions
 
 %build
-mvn-rpmbuild -Dmaven.test.skip=true install javadoc:aggregate
+%mvn_build -f
 
 %install
-mkdir -p $RPM_BUILD_ROOT%{_javadir}
+%mvn_install
 
-# jar
-install -Dp -m 644 target/%{name}-%{version}.jar \
-$RPM_BUILD_ROOT%{_javadir}/%{name}.jar
-
-# javadoc
-mkdir -p $RPM_BUILD_ROOT%{_javadocdir}/%{name}
-cp -rp target/site/apidocs/  $RPM_BUILD_ROOT%{_javadocdir}/%{name}
-
-# pom
-install -d -m 755 $RPM_BUILD_ROOT%{_mavenpomdir}
-install -pm 644 pom.xml  $RPM_BUILD_ROOT%{_mavenpomdir}/JPP-%{name}.pom
-
-%add_maven_depmap JPP-%{name}.pom %{name}.jar
-
-%files
+%files -f .mfiles
 %doc NOTICE.txt LICENSE.txt
-%{_mavenpomdir}/*
-%{_mavendepmapfragdir}/*
-%{_javadir}/*
 
 %files javadoc
 %doc LICENSE.txt
