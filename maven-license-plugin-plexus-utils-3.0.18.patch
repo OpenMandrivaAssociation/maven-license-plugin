@@ -1,0 +1,11 @@
+--- src/main/java/com/google/code/mojo/license/util/FileUtils.java.orig	2014-12-29 12:17:35.658906997 +0000
++++ src/main/java/com/google/code/mojo/license/util/FileUtils.java	2014-12-29 12:17:45.241906291 +0000
+@@ -52,7 +52,7 @@
+     }
+ 
+     public static String read(URL location, Map<String, String> properties) throws IOException {
+-        Reader reader = new InterpolationFilterReader(new BufferedReader(new InputStreamReader(location.openStream())), properties);
++        Reader reader = new InterpolationFilterReader(new BufferedReader(new InputStreamReader(location.openStream())), (Map)properties);
+         try {
+             return IOUtil.toString(reader);
+         } finally {

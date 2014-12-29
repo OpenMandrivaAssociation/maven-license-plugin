@@ -14,6 +14,7 @@ URL:            http://code.google.com/p/maven-license-plugin
 Source0:        %{name}-%{version}.tar.xz
 # remove testng dep (tests are skipped) and maven-license-plugin call
 Patch0:         001-mavenlicenseplugin-fixbuild.patch
+Patch1:		maven-license-plugin-plexus-utils-3.0.18.patch
 BuildArch:      noarch
 
 BuildRequires:  java-devel
@@ -77,6 +78,8 @@ This package contains the API documentation for %{name}.
 %prep
 %setup -q -n %{name}
 %patch0 -p1
+%patch1 -p0
+
 # fix EOL
 sed -i 's/\r//' LICENSE.txt
 sed -i 's/\r//' NOTICE.txt
