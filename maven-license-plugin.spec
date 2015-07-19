@@ -1,7 +1,7 @@
 %{?_javapackages_macros:%_javapackages_macros}
 Name:           maven-license-plugin
 Version:        1.8.0
-Release:        17.1
+Release:        17.2
 Summary:        Maven plugin to update header licenses of source files
 Group:		Development/Java
 
