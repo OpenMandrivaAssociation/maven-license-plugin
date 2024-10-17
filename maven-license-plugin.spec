@@ -6,7 +6,7 @@ Summary:        Maven plugin to update header licenses of source files
 Group:		Development/Java
 
 License:        ASL 2.0
-URL:            http://code.google.com/p/maven-license-plugin
+URL:            https://code.google.com/p/maven-license-plugin
 ### upstream only provides binaries or source without build scripts
 # tar creation instructions
 # svn export http://maven-license-plugin.googlecode.com/svn/tags/maven-license-plugin-1.8.0 maven-license-plugin
